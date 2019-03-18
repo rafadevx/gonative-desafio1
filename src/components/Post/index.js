@@ -1,15 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, Text, View } from 'react-native';
-
-const Post = ({ title, author, content }) => (
-  <View style={styles.post}>
-    <Text style={styles.title}>{title}</Text>
-    <Text style={styles.author}>{author}</Text>
-    <Text>{content}</Text>
-  </View>
-);
-
-export default Post;
 
 const styles = StyleSheet.create({
   post: {
@@ -29,3 +20,19 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 });
+
+const Post = ({ title, author, content }) => (
+  <View style={styles.post}>
+    <Text style={styles.title}>{title}</Text>
+    <Text style={styles.author}>{author}</Text>
+    <Text>{content}</Text>
+  </View>
+);
+
+Post.propTypes = {
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+};
+
+export default Post;

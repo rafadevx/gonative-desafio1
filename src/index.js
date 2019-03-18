@@ -5,6 +5,24 @@ import {
 } from 'react-native';
 import Post from './components/Post';
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: 40,
+    backgroundColor: '#bdc3c7',
+  },
+  header: {
+    alignItems: 'center',
+    backgroundColor: '#FFF',
+    paddingTop: 20,
+    height: 76,
+  },
+  appTitle: {
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+});
+
 export default class App extends Component {
   state = {
     posts: [
@@ -40,13 +58,14 @@ export default class App extends Component {
   };
 
   render() {
+    const { posts } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.appTitle}>GoNative App</Text>
         </View>
         <ScrollView>
-          {this.state.posts.map(post => (
+          {posts.map(post => (
             <Post key={post.id} title={post.title} author={post.author} content={post.content} />
           ))}
         </ScrollView>
@@ -54,21 +73,3 @@ export default class App extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 40,
-    backgroundColor: '#bdc3c7',
-  },
-  header: {
-    alignItems: 'center',
-    backgroundColor: '#FFF',
-    paddingTop: 20,
-    height: 76,
-  },
-  appTitle: {
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
-});
