@@ -14,16 +14,15 @@ export default Post;
 const styles = StyleSheet.create({
   post: {
     display: 'flex',
-    marginBottom: 10,
-    marginTop: 10,
+    marginTop: 20,
+    marginHorizontal: 20,
     backgroundColor: '#FFF',
-    width: '80%',
     padding: 20,
     borderRadius: 5,
   },
   title: {
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 16,
   },
   author: {
     color: '#bdc3c7',

@@ -1,6 +1,8 @@
 import './config/ReactotronConfig';
 import React, { Component } from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
+import {
+  StyleSheet, View, ScrollView, Text,
+} from 'react-native';
 import Post from './components/Post';
 
 export default class App extends Component {
@@ -39,13 +41,16 @@ export default class App extends Component {
 
   render() {
     return (
-      <ScrollView>
-        <View style={styles.container}>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.appTitle}>GoNative App</Text>
+        </View>
+        <ScrollView>
           {this.state.posts.map(post => (
             <Post key={post.id} title={post.title} author={post.author} content={post.content} />
           ))}
-        </View>
-      </ScrollView>
+        </ScrollView>
+      </View>
     );
   }
 }
@@ -54,7 +59,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 40,
-    alignItems: 'center',
     backgroundColor: '#bdc3c7',
+  },
+  header: {
+    alignItems: 'center',
+    backgroundColor: '#FFF',
+    paddingTop: 20,
+    height: 76,
+  },
+  appTitle: {
+    fontWeight: 'bold',
+    fontSize: 16,
   },
 });
